@@ -14,6 +14,8 @@
     "axios": "^1.7.9",
     "dotenv": "^16.4.7",
     "fs": "^0.0.1-security",
+    "node-fetch": "^3.3.2",
+    "ollama": "^0.5.13",
     "puppeteer": "^24.2.1"
   }
 }
