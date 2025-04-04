@@ -20,14 +20,11 @@ export async function generateTest(description) {
             throw new Error(`❌ Error en la solicitud: ${response.status} ${response.statusText}`);
         }
 
-        // ✅ Leer la respuesta como texto
         const text = await response.text();
-        console.log("📄 Respuesta bruta de la IA:\n", text); // Para depuración
+        console.log("📄 Respuesta bruta de la IA:\n", text);
 
-        // La API devuelve NDJSON (líneas separadas de JSON), así que lo dividimos
         const jsonObjects = text.trim().split("\n").map(line => JSON.parse(line));
 
-        // ✅ Concatenamos todas las respuestas parciales en un solo string
         const fullResponse = jsonObjects.map(obj => obj.response).join("");
 
         if (!fullResponse) {
